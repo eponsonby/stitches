@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
+import Image from 'next/image'
 import utilStyles from '../../styles/utils.module.css'
 
 // getPostData function is being used here (in getStaticProps)
@@ -36,6 +37,15 @@ export default function Post({ postData }) {
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
+          <Image
+              priority
+              // The image component requires the '/'
+              src={"/" + postData.image}
+              className={utilStyles.postImage}
+              height={665}
+              width={1000}
+              alt={postData.title}
+            />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
       </Layout>
