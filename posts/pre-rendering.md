@@ -1,7 +1,10 @@
 ---
 title: 'Two Forms of Pre-rendering'
 date: '2020-01-01'
+image: ../public/images/lauren-sauder-N52kuG_koFo-unsplash.jpg
 ---
+
+<!-- The above metadata is called YAML Front Matter which can be parsed using gray-matter -->
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 

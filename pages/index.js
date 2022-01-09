@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 import Date from '../components/date'
 import { getSortedPostsData } from '../lib/posts'
 
@@ -29,17 +30,26 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, image }) => (
             <li className={utilStyles.listItem} key={id}>
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            <br />
             <Link href={`/posts/${id}`}>
               <a>{title}</a>
             </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
+            <Image
+              priority
+              // The image component requires the '/'
+              src={"/" + image}
+              className={utilStyles.borderCircle}
+              height={144}
+              width={144}
+              alt={title}
+            />
           </li>
           ))}
         </ul>

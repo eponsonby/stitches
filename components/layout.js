@@ -1,11 +1,16 @@
+// Head is a Next.js provided component that
+// allows you to modify the head of the page
 import Head from 'next/head'
+// Image is a Next.js provided component that handles
+// image responsiveness, only loading images when they enter viewport
+// image optimization
 import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Your Name'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Ruby Stitches Sewing'
+export const siteTitle = 'Ruby Stitches'
 
 export default function Layout({ children, home }) {
   return (
@@ -14,7 +19,7 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Learn to sew with Ruby Stitches Sewing"
         />
         <meta
           property="og:image"
